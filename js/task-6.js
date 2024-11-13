@@ -20,6 +20,7 @@ function divCreate() {
       class="colorBox"
       style="height: 30px; width: 30px; background-color: ${getRandomHexColor()};">
       </div>`;
+      
       divCont.insertAdjacentHTML("beforeend", box);
     }
   }

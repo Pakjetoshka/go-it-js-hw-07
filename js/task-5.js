@@ -10,7 +10,7 @@ const spanElt = document.querySelector(".color");
 
 const btnActivated = () =>{
   bodyElt.style.backgroundColor = getRandomHexColor();
-  spanElt.style.color = getRandomHexColor();
+  spanElt.textContent = getRandomHexColor();
 };
 
 btnColorChange.addEventListener("click", btnActivated);
