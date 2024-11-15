@@ -8,7 +8,7 @@ textInput.addEventListener("blur", (event) => {
     textInput.value = event.currentTarget.value.trim();
 });
 
-textInput.addEventListener("blur", setOutput);
+textInput.addEventListener("input", setOutput);
 function setOutput() {
     if (spanOutput.textContent === "")
     {
