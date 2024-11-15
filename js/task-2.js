@@ -33,9 +33,16 @@ const imgList = images
       src="${imgObj.url}" 
       alt="${imgObj.alt}" 
       width="360" 
+      height="300"
+      style="object-fit: cover"
     />
   </li>
   `)
   .join("");
-
+gallery.style.listStyle = ("none");
+gallery.style.display = ("flex");
+gallery.style.flexWrap = ("wrap");
+gallery.style.width = ("1150px");
+gallery.style.columnGap = ("10px");
+gallery.style.rowGap = ("20px");
 gallery.insertAdjacentHTML('beforeend', imgList);
