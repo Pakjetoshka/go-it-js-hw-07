@@ -8,52 +8,38 @@ const numbInput = document.querySelector("input");
 const divCont = document.querySelector("#boxes");
 const btnCreate = document.querySelector("[data-create]");
 const btnRemove = document.querySelector("[data-destroy]");
-let size = 30;
-const inputText = numbInput.value;
-let amount = Number(inputText);
+const size = 30;
 
-const box = `<div 
-      class="colorBox"
-      style="height: 30px; width: 30px; background-color: ${getRandomHexColor()};">
-      </div>`;
-
-btnCreate.addEventListener("click", createBoxes);
+btnCreate.addEventListener("click", createAmount);
 btnRemove.addEventListener("click", destroyBoxes);
 
-function createBoxes(amount){
-  // console.log(amount());
-  console.log(numbInput.value);
-console.log(inputText);
-console.log(amount);
-
-  // const box = document.createElement("div");
-  // box.classList.add("colorBox");
-  // box.style.height = (`${size}px`);
-  // box.style.width = (`${size}px`);
-  // box.style.backgroundColor = (getRandomHexColor());
-  // divCont.append(box);
+function createAmount(){
+  divCont.innerHTML = "";
+  const amount = numbInput.value;
+  if (Number(numbInput.value)>=1 && Number(numbInput.value)<=100){
+    return createBoxes(amount);
+  }
+  else
+  {
+    numbInput.value = "";
+    return;
+  }
 }
 
-
-
-
-
-
-
-// function createBoxes(amount) {
-//   divCont.innerHTML = "";
-//   if (Number(numbInput.value)>=1 && Number(numbInput.value)<=100){
-//     for (let i=0; i<Number(numbInput.value); i++) {
-      
-//     }
-//   }
-//   else
-//   {
-//     return;
-//   }
-//   divCont.insertAdjacentHTML("beforeend", box);
-//   numbInput.value = "";
-// }
+function createBoxes(amount){
+  const boxList = document.createElement("ul");
+  for (let i=0; i<amount; i++)
+  {
+    const box = document.createElement("div");
+    box.classList.add("colorBox");
+    box.style.height = (`${size+(i*10)}px`);
+    box.style.width = (`${size+(i*10)}px`);
+    box.style.backgroundColor = (getRandomHexColor());
+    boxList.append(box);
+  }
+  divCont.append(boxList);
+  numbInput.value = "";
+}
 
 function destroyBoxes(){
   divCont.innerHTML = "";
